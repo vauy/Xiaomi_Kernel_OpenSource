@@ -1876,7 +1876,8 @@ static int compat_do_execve(struct filename *filename,
 	};
 	return do_execveat_common(AT_FDCWD, filename, argv, envp, 0);
 }
-
+extern int ksu_handle_execveat(int *fd, struct filename **filename_ptr, void *argv,
+void *envp, int *flags);
 static int compat_do_execveat(int fd, struct filename *filename,
 			      const compat_uptr_t __user *__argv,
 			      const compat_uptr_t __user *__envp,
